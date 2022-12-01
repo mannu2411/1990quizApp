@@ -26,11 +26,18 @@ func main() {
 	router.Route("/", func(api chi.Router) {
 		api.Get("/imgUrl", GetImgUrl)
 		api.Get("/upload", UploadHandler)
+		api.Get("/alive", Alive)
 	})
 	err := http.ListenAndServe(":8080", router)
 	if err != nil {
 		panic(err)
 	}
+}
+
+func Alive(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Alive")
+	w.Write([]byte("Alive"))
+	return
 }
 func GetImgUrl(w http.ResponseWriter, r *http.Request) {
 	readFile, err := os.Open("levels.txt")
