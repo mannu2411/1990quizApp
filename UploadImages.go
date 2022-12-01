@@ -36,7 +36,7 @@ func main() {
 
 func Alive(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Alive")
-	w.Write([]byte("Alive"))
+	w.Write([]byte("<h4>Alive<h4>"))
 	return
 }
 func GetImgUrl(w http.ResponseWriter, r *http.Request) {
