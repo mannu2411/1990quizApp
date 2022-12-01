@@ -26,7 +26,7 @@ func main() {
 	router.Route("/", func(api chi.Router) {
 		api.Get("/imgUrl", GetImgUrl)
 		api.Get("/upload", UploadHandler)
-		api.Get("/alive", Alive)
+		api.Get("/", Alive)
 	})
 	err := http.ListenAndServe(":8080", router)
 	if err != nil {
